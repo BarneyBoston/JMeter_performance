@@ -18,7 +18,7 @@ pipeline {
         stage('Publish Results') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'src\\test\\jmeter\\report',
+                    reportDir: 'src/test/jmeter/report',
                     reportFiles: 'index.html',
                     keepAll: true,
                     alwaysLinkToLastBuild: true
