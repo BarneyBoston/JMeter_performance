@@ -40,7 +40,8 @@ pipeline {
                     bat 'dir src\\test\\jmeter\\report'
                 }
                 publishHTML(target: [
-                    reportDir: 'C:\\jenkins_agent\\workspace\\JMeter_performance\\src\\test\\jmeter\\report',
+                    reportName: 'JMeter Performance Report',
+                    reportDir: 'src\\test\\jmeter\\report',
                     reportFiles: 'index.html',
                     keepAll: true,
                     alwaysLinkToLastBuild: true
