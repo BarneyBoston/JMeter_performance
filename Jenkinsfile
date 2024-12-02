@@ -36,11 +36,14 @@ pipeline {
         }
         stage('Publish Results') {
             steps {
+                script {
+                    bat 'dir src\\test\\jmeter\\report'
+                }
                 publishHTML(target: [
+                    reportName: 'JMeter Report',
                     reportDir: 'src/test/jmeter/report',
                     reportFiles: 'index.html',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true
+                    keepAll: true
                 ])
             }
         }
