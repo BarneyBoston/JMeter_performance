@@ -8,6 +8,16 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Clean Report Directory') {
+            steps {
+                script {
+                    def reportDir = 'src\\test\\jmeter\\report'
+                    bat "if exist ${reportDir} rmdir /s /q ${reportDir}"
+                    bat "mkdir ${reportDir}"
+                }
+            }
+        }
+
         stage('Run JMeter Tests') {
             steps {
                 bat """
