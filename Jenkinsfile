@@ -18,6 +18,15 @@ pipeline {
             }
         }
 
+        stage('Clean Results File') {
+            steps {
+                script {
+                    def resultsFile = 'src\\test\\jmeter\\results.jtl'
+                    bat "if exist ${resultsFile} del /f /q ${resultsFile}"
+                }
+            }
+        }
+
         stage('Run JMeter Tests') {
             steps {
                 bat """
