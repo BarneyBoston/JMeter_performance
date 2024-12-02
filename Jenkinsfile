@@ -11,7 +11,7 @@ pipeline {
         stage('Run JMeter Tests') {
             steps {
                 bat """
-                    jmeter -n -t src\\test\\jmeter\\test-plan.jmx -l src\\test\\jmeter\\results.jtl -e -o src\\test\\jmeter\\report
+                    jmeter -n -t src\\test\\jmeter\\test-plan.jmx -l src\\test\\jmeter\\results.jtl -e -o src\\test\\jmeter\\report -Jjmeter.save.saveservice.output_format=csv
                     """
             }
         }
